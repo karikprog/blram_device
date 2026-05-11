@@ -9,6 +9,6 @@ ccflags-y := 	-Wall					\
 		-Werror=format-security			\
 		-Werror=implicit-function-declaration	
 
-hworld-y := main.o
+blramdev-y := main.o
 
-obj-m := hworld.o
+obj-m := blramdev.o
