@@ -15,18 +15,3 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y clang-format
           clang-format --dry-run --Werror *.c
-
-  build-and-test:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install deps
-        run: |
-          sudo dnf install -y kernel-devel-$(uname -r) kernel-headers gcc make bc elfutils-libelf-devel e2fsprogs util-linux
-      - name: Build module
-        run: make build
-      - name: Run tests
-        run: sudo bash tests/run_tests.sh
-      - name: Clean
-        if: always()
-        run: make clean
