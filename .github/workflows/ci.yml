@@ -12,7 +12,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check clang-format
         run: |
-          sudo dnf install -y clang-tools-extra
+          sudo apt-get update
+          sudo apt-get install -y clang-tools-extra
           clang-format --dry-run --Werror *.c
 
   build-and-test:
